@@ -1,8 +1,38 @@
-## Welcome to GitHub Pages
+## Fortnite Cube Movement Tracker
 
-You can use the [editor on GitHub](https://github.com/donnellan0007/fortnite-cube/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+Fortnite Cube Movement Timer
+<script>
+  
+  var startTime = 0.25; //5:40
+  
+  var doneClass = "done"; //optional styling when timer is done
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var intervalLoop = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+		for(var i=0;i<display.length;i++){
+          display[i].textContent = minutes + ":" + seconds;
+        }
+        if (--timer < 0) {
+          for(var i=0;i<display.length;i++){
+            display[i].classList.add(doneClass);
+            display[i].textContent = "DONE";
+          }
+          clearInterval(intervalLoop);
+        }
+    	}, 1000);
+	}
+window.onload = function () {
+    var setMinutes = 60 * startTime,
+    display = document.querySelectorAll(".timer");
+    startTimer(5:00, display);
+};
+</script>
 
 ### Markdown
 
